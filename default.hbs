@@ -33,6 +33,7 @@
         <link rel="icon" href="{{asset 'favicon.ico'}}" />
         <link rel="icon" sizes="196x196" href="{{asset 'images/android-homescreen.png'}}" />
         <link rel="apple-touch-icon" href="{{asset 'images/apple-touch-icon.png'}}" />
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
         {{! Prerendering and Prefetching }}
         {{#if @blog.cover_image}}
@@ -47,6 +48,7 @@
         <link rel="stylesheet" href="{{asset 'css/animate.css'}}" />
         <link rel="stylesheet" href="{{asset 'css/highlight.css'}}" />
         <link rel="stylesheet" href="{{asset 'css/phantom.css'}}" />
+		<link rel="stylesheet" href="{{asset 'css/slidebars.beautified.css'}}" />
         <script src="{{asset 'js/html5shiv-printshiv.js'}}"></script>
         <script src="{{asset 'js/respond.js'}}"></script>
 
@@ -57,6 +59,11 @@
 
     </head>
     <body class="{{body_class}}">
+	<div canvas="container">
+        <div class="menu-handler">
+			<span class="ion-navicon"></span>
+		</div>
+
         <nav class="animated fadeIn navigation">
             <div class="container">
                 <a href="{{@blog.url}}" class="text-right sidebar brand">
@@ -65,6 +72,7 @@
                 <p class="content">{{@blog.title}}</p>
             </div>
         </nav>
+
         <div class="main">
             {{{body}}}
         </div>
@@ -76,7 +84,18 @@
         </footer>
 
         {{ghost_foot}}
-
+	</div>
+    <div off-canvas="menu-slider left reveal" class="sidebar-menu">
+    	<ul>
+        {{#get "tags" limit="all"}}
+    	   {{#foreach tags}}
+    		<li>
+    			<a href="{{url}}" title={{name}} class="tag tag-{{id}} {{slug}}">{{name}}</a>
+    		</li>
+    	   {{/foreach}}
+        {{/get}}
+    	</ul>
+    </div>
         {{! Deferred scripts }}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript">
@@ -90,6 +109,7 @@
         <script src="{{asset 'js/highlight.js'}}"></script>
         <script src="{{asset 'js/phantom.js'}}"></script>
         <script src="{{asset 'js/jquery.timeago.min.js'}}"></script>
+		<script src="{{asset 'js/slidebars.min.js'}}"></script>
 
         <script>jQuery(document).ready(function() { jQuery("time.timeago").timeago(); });</script>
 

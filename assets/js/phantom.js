@@ -48,4 +48,33 @@ $(function () {
         return false;
     });
 
+    // Editado
+	var controller = new slidebars();
+	controller.init();
+
+    $( ".menu-handler" ).on( 'click', function( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+        controller.toggle( "menu-slider" );
+    });
+
+    // Close any
+    $( document ).on( 'click', '.js-close-any', function ( event ) {
+        if ( controller.getActiveSlidebar() ) {
+            event.preventDefault();
+            event.stopPropagation();
+            controller.close();
+        }
+    } );
+
+	// Add close class to canvas container when Slidebar is opened
+	$( controller.events ).on( 'opening', function ( event ) {
+		$( '[canvas]' ).addClass( 'js-close-any' );
+	} );
+
+	// Add close class to canvas container when Slidebar is opened
+	$( controller.events ).on( 'closing', function ( event ) {
+		$( '[canvas]' ).removeClass( 'js-close-any' );
+	} );
+
 });

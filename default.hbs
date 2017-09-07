@@ -5,7 +5,7 @@
         {{! Document settings and metadata }}
         <title>{{meta_title}}</title>
         <meta charset="utf-8" />
-        <meta name="designer" content="Hayden Bleasel" />
+        <meta name="designer" content="Hayden Bleasel, tharok" />
         <meta name="rating" content="general" />
         <meta name="keywords" content="ghost, blog, {{meta_title}}" />
 
@@ -85,17 +85,7 @@
 
         {{ghost_foot}}
 	</div>
-    <div off-canvas="menu-slider left reveal" class="sidebar-menu">
-    	<ul>
-        {{#get "tags" limit="all"}}
-    	   {{#foreach tags}}
-    		<li>
-    			<a href="{{url}}" title={{name}} class="tag tag-{{id}} {{slug}}">{{name}}</a>
-    		</li>
-    	   {{/foreach}}
-        {{/get}}
-    	</ul>
-    </div>
+    {{>sidebar-menu}}
         {{! Deferred scripts }}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript">

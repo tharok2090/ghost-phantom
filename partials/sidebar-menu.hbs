@@ -1,0 +1,18 @@
+<div off-canvas="menu-slider left reveal" class="sidebar-menu">
+    <div class="author-list">
+        {{#get "users" slug="tharok" as |user|}}
+            {{#user}}
+                    <a href="{{url}}" title="{{name}}" class="author-{{name}}"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></a>
+            {{/user}}
+        {{/get}}
+    </div>
+	<ul>
+    {{#get "tags" limit="all"}}
+	   {{#foreach tags}}
+		<li>
+			<a href="{{url}}" title={{name}} class="tag tag-{{id}} {{slug}}">{{name}}</a>
+		</li>
+	   {{/foreach}}
+    {{/get}}
+	</ul>
+</div>

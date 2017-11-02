@@ -3,7 +3,7 @@
     <head>
 
         {{! Document settings and metadata }}
-        <title>{{meta_title}}</title>
+        <title>{{meta_title}} - {{@blog.title}}</title>
         <meta charset="utf-8" />
         <meta name="designer" content="Hayden Bleasel, tharok" />
         <meta name="rating" content="general" />
@@ -66,20 +66,18 @@
 
         <nav class="animated fadeIn navigation">
             <div class="container">
-                <a href="{{@blog.url}}" class="text-right sidebar brand">
+                <a href="{{@blog.url}}" class="brand">
                     {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="{{@blog.title}}" />{{/if}}
                 </a>
-                <p class="content">{{@blog.title}}</p>
             </div>
         </nav>
 
         <div class="main">
             {{{body}}}
         </div>
-        <footer class="animated fadeIn" id="footer">
+        <footer class="animated fadeIn container" id="footer">
             <div class="container text-center">
-                <p class="copyright"><span>Made by {{@blog.title}}.</span> <span>Powered by Ghost.</span></p>
-                <a href="https://github.com/haydenbleasel/phantom" class="theme">Theme: Phantom by Hayden Bleasel</a>
+                <p class="copyright"><span>Made by tharok.</span> <span>Powered by Ghost.</span></p>
             </div>
         </footer>
 

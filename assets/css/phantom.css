@@ -191,6 +191,9 @@ strong {
 	border:none;
 	padding:30px 0;
 	line-height:0;
+	width: 150px;
+	margin: 0 auto;
+	float: none;
 }
 .brand img {
 	width:auto;
@@ -390,6 +393,7 @@ footer {
 	animation-delay:2s;
 	-webkit-animation-duration:1s;
 	animation-duration:1s;
+	border-top: 1px solid #ddd;
 }
 .copyright {
 	font-size:20px;
@@ -418,7 +422,7 @@ footer p {
 	border-bottom:none;
 }
 .sample .container {
-	padding-top:130px;
+	padding-top:100px;
 	padding-bottom:0;
 }
 .excerpt article {
